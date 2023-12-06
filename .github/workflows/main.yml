@@ -1,7 +1,7 @@
 name: hello-world
 on: workflow_dispatch
 jobs:
-  install:
+  install-and-run-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -11,9 +11,4 @@ jobs:
         with:
           node-version: 20.8.1
       - run: npm ci
-    
-  cypress-run-all-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: my-step
-        run: echo "Cypress Test Hello World!"
+      - run: npm run cypress:run
