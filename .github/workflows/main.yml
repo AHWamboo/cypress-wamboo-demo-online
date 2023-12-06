@@ -2,6 +2,9 @@ name: hello-world
 on: workflow_dispatch
 jobs:
   install-and-run-tests:
+    env:
+      WP_USER1: ${{ secrets.WP_USER1 }}
+      WP_USER1_PASSWORD: ${{ secrets.WP_USER1_PASSWORD }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
