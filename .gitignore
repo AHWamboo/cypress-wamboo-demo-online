@@ -128,3 +128,16 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# cypress e2e config
+.config/*
+*.log
+*.aes
+cypress/downloads
+cypress/screenshots
+cypress/videos
+cypress/logs
+
+# project config
+.prettierrc.json
+todo.txt

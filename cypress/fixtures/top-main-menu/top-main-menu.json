@@ -1,0 +1,10 @@
+{
+    "navItemsNames": ["About", "Contact", "Home", "Security Service", "Blog"],
+    "navItemsNamesWithUrls": [
+        { "name": "About", "url": "/about" },
+        { "name": "Contact", "url": "/contact" },
+        { "name": "Home", "url": "/" },
+        { "name": "Security Service", "url": "/security-service" },
+        { "name": "Blog", "url": "/blog" }
+    ]
+}
