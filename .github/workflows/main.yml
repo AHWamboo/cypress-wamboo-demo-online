@@ -1,4 +1,4 @@
-name: hello-world
+name: e2e-tests
 on: workflow_dispatch
 jobs:
   install-and-run-tests:
