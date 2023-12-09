@@ -5,6 +5,8 @@ jobs:
     env:
       WP_USER1: ${{ secrets.WP_USER1 }}
       WP_USER1_PASSWORD: ${{ secrets.WP_USER1_PASSWORD }}
+      WP_ADMIN: ${{ secrets.WP_ADMIN }}
+      WP_ADMIN_PASSWORD: ${{ secrets.WP_ADMIN_PASSWORD }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
