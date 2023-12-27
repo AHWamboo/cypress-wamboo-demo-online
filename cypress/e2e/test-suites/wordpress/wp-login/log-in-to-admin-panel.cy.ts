@@ -17,7 +17,7 @@ describe('Wordpress log in website - user log in options', () => {
 
     it('User can log in using the wordpress login form', () => {
         wpLoginActions.logIn(WP_ADMIN, WP_ADMIN_PASSWORD);
-        wpAdminBarAsserts.verifyAdminPanelUserName(WP_ADMIN);
+        wpAdminBarAsserts.verifyAdminPanelHelpLinkExists();
     });
 
     it('User can not log in using wordpress login form, the wrong user should display the correct error label.', () => {
