@@ -4,8 +4,8 @@
     "description": "a",
     "main": "index.js",
     "scripts": {
-        "cypress:run": "cypress run --env WP_USER1=$WP_USER1,WP_USER1_PASSWORD=$WP_USER1_PASSWORD,WP_ADMIN=$WP_ADMIN,WP_ADMIN_PASSWORD=$WP_ADMIN_PASSWORD",
-        "cypress:open": "cypress open --env WP_USER1=$WP_USER1,WP_USER1_PASSWORD=$WP_USER1_PASSWORD,WP_ADMIN=$WP_ADMIN,WP_ADMIN_PASSWORD=$WP_ADMIN_PASSWORD",
+        "cypress:run": "cypress run",
+        "cypress:open": "cypress open",
         "prettier:check": "npx prettier --check .",
         "prettier:write": "npx prettier --write ."
     },

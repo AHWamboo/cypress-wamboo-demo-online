@@ -8,13 +8,9 @@ export class SocialMediaTopHeaderAsserts {
     verifyIfSocialMediaAndContactElementsExist(): void {
         cy.get(socialMediaTopHeaderSelectors.phoneNumber).should('exist').and('be.visible');
         cy.get(socialMediaTopHeaderSelectors.emailAddress).should('exist').and('be.visible');
-        cy.get(socialMediaTopHeaderSelectors.socialIcons.facebook)
-            .should('exist')
-            .and('be.visible');
+        cy.get(socialMediaTopHeaderSelectors.socialIcons.facebook).should('exist').and('be.visible');
         cy.get(socialMediaTopHeaderSelectors.socialIcons.x).should('exist').and('be.visible');
-        cy.get(socialMediaTopHeaderSelectors.socialIcons.instagram)
-            .should('exist')
-            .and('be.visible');
+        cy.get(socialMediaTopHeaderSelectors.socialIcons.instagram).should('exist').and('be.visible');
         cy.get(socialMediaTopHeaderSelectors.socialIcons.rss).should('exist').and('be.visible');
     }
 

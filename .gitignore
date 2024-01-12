@@ -137,6 +137,7 @@ cypress/downloads
 cypress/screenshots
 cypress/videos
 cypress/logs
+cypress.env.json
 
 # project config
 .prettierrc.json

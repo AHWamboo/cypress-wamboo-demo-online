@@ -1,8 +1,4 @@
-import {
-    WP_LOG_IN_PAGE_URL,
-    WpLoginActions,
-    WpLoginAsserts,
-} from '../../../pages/wordpress/wp-login';
+import { WP_LOG_IN_PAGE_URL, WpLoginActions, WpLoginAsserts } from '../../../pages/wordpress/wp-login';
 import { WP_ADMIN, WP_ADMIN_PASSWORD, WP_USER1, WP_USER1_PASSWORD } from '../../../../.config';
 import { WpAdminBarAsserts } from '../../../components/wordpress/wp-admin-bar';
 
