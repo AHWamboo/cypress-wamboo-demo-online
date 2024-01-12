@@ -17,9 +17,7 @@ describe('Sending emails from the contact page', () => {
                 email: contactData.email,
                 message: contactData.message,
             });
-            contactPageAsserts.verifySubmittedContactFormLabel(
-                contactData.submittedContactFormLabel
-            );
+            contactPageAsserts.verifySubmittedContactFormLabel(contactData.submittedContactFormLabel);
         });
     });
 
@@ -32,5 +30,9 @@ describe('Sending emails from the contact page', () => {
             });
             contactPageAsserts.verifyContactFormEndpointStatus();
         });
+    });
+
+    it('A conact form approved without the required data should display the appropriate information and the fields should display in red', () => {
+        contactPageAsserts.verifyAppearanceOfFormWithAllRequiredDataMissing();
     });
 });

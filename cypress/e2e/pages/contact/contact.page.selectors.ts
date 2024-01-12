@@ -4,6 +4,6 @@ export const contactPageSelectors = {
         emailInput: '#et_pb_contact_email_0',
         messageTextArea: '#et_pb_contact_message_0',
         submitButton: '.et_pb_contact_submit',
-        submittedSuccessLabel: '.et-pb-contact-message',
+        submittedLabel: '.et-pb-contact-message',
     },
 };
