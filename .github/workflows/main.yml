@@ -8,7 +8,6 @@ jobs:
             WP_ADMIN: ${{ secrets.WP_ADMIN }}
             WP_ADMIN_PASSWORD: ${{ secrets.WP_ADMIN_PASSWORD }}
         runs-on: ubuntu-latest
-        continue-on-error: true
         steps:
             - name: Checkout
               uses: actions/checkout@v4
@@ -26,13 +25,16 @@ jobs:
               uses: actions/download-artifact@v3
               with:
                 name: package
-            - run: npm run cypress:run:ci
+            - name: Cypress run tests
+              uses: cypress-io/github-action@v6
+              with:
+                start: npm run cypress:run:ci
             - name: Upload artifacts
               uses: actions/upload-artifact@v3
               with:
-                name: screens
-                path: cypress/tsconfig.json
+                name: videos
+                path: cypress/videos
             - name: Get build aftifacts
               uses: actions/download-artifact@v3
               with:
-                name: screens
+                name: videos
