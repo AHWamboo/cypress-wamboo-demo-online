@@ -18,6 +18,7 @@ jobs:
             - run: npm ci
             - run: npm run cypress:run:ci
             - name: Upload artifacts
+              continue-on-error: true
               uses: actions/upload-artifact@v3
               with:
                 name: screens
