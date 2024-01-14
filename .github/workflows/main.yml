@@ -8,9 +8,9 @@ jobs:
             WP_ADMIN: ${{ secrets.WP_ADMIN }}
             WP_ADMIN_PASSWORD: ${{ secrets.WP_ADMIN_PASSWORD }}
         runs-on: ubuntu-latest
+        continue-on-error: true
         steps:
             - name: Checkout
-              continue-on-error: true
               uses: actions/checkout@v4
             - name: Install dependencies
               uses: actions/setup-node@v4
