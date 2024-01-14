@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "cypress:run": "cypress run",
-        "cypress:run:ci": "cypress run --env WP_USER1=$WP_USER1,WP_USER1_PASSWORD=$WP_USER1_PASSWORD,WP_ADMIN=$WP_ADMIN,WP_ADMIN_PASSWORD=$WP_ADMIN_PASSWORD",
+        "cypress:run:ci": "cypress run --env WP_USER1=$WP_USER1,WP_USER1_PASSWORD=$WP_USER1_PASSWORD,WP_ADMIN=$WP_ADMIN,WP_ADMIN_PASSWORD=$WP_ADMIN_PASSWORD --browser chrome",
         "cypress:open": "cypress open",
         "prettier:check": "npx prettier --check .",
         "prettier:write": "npx prettier --write ."
