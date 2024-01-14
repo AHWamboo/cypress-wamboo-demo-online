@@ -17,6 +17,15 @@ jobs:
               with:
                   node-version: 20.8.1
             - run: npm ci
+            - name: Upload artifacts
+              uses: actions/upload-artifact@v3
+              with:
+                name: package
+                path: package.json
+            - name: Get build aftifacts
+              uses: actions/download-artifact@v3
+              with:
+                name: package
             - run: npm run cypress:run:ci
             - name: Upload artifacts
               uses: actions/upload-artifact@v3
