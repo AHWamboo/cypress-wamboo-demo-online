@@ -10,6 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
+              continue-on-error: true
               uses: actions/checkout@v4
             - name: Install dependencies
               uses: actions/setup-node@v4
@@ -18,7 +19,6 @@ jobs:
             - run: npm ci
             - run: npm run cypress:run:ci
             - name: Upload artifacts
-              continue-on-error: true
               uses: actions/upload-artifact@v3
               with:
                 name: screens
