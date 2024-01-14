@@ -18,7 +18,12 @@ jobs:
             - run: npm ci
             - run: npm run cypress:run:ci
             - name: Upload artifacts
+              continue-on-error: true
               uses: actions/upload-artifact@v3
               with:
                 name: screens
                 path: cypress/screenshots
+            - name: Get build aftifacts
+              uses: actions/download-artifact@v3
+              with:
+                name: screens
