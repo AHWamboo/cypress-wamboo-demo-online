@@ -22,3 +22,7 @@ jobs:
               with:
                 name: screens
                 path: cypress/screenshots
+            - name: Get build aftifacts
+              uses: actions/download-artifact@v3
+              with:
+                name: screens
