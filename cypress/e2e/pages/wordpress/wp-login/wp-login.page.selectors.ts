@@ -4,6 +4,5 @@ export const wpLoginSelectors = {
         passwordInput: '#user_pass',
         submitButton: '#wp-submit',
         loginErrorLabel: '#login_error',
-        loginPlaceHolder: '@login_place',
     },
 };
