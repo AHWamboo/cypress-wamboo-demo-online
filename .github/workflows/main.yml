@@ -31,7 +31,7 @@ jobs:
               uses: actions/upload-artifact@v3
               with:
                 name: screens
-                path: cypress/screenshots
+                path: cypress/tsconfig.json
             - name: Get build aftifacts
               uses: actions/download-artifact@v3
               with:
