@@ -17,3 +17,8 @@ jobs:
                   node-version: 20.8.1
             - run: npm ci
             - run: npm run cypress:run:ci
+            - name: Upload artifacts
+              uses: actions/upload-artifact@v3
+                with:
+                  name: screens
+                  path: cypress/screenshots
