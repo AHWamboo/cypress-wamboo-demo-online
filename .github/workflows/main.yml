@@ -19,6 +19,6 @@ jobs:
             - run: npm run cypress:run:ci
             - name: Upload artifacts
               uses: actions/upload-artifact@v3
-                with:
-                  name: screens
-                  path: cypress/screenshots
+              with:
+                name: screens
+                path: cypress/screenshots
