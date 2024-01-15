@@ -11,11 +11,6 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
-            - name: Install dependencies
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 20.8.1
-            - run: npm ci
             - name: see ENVS
               run: env
             - name: Upload artifacts
