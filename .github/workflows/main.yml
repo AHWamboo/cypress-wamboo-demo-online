@@ -11,6 +11,9 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
+            - name: Create cypress.env.json file
+              run: |
+                echo '${{ secrets.CYPRESS_ENVS }}' > cypress.env.json
             - name: see ENVS
               run: env
             - name: Cypress run tests
