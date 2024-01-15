@@ -10,6 +10,7 @@ export class WpLoginActions {
         if (typeof pass === 'undefined')
             throw new Error(`The environment variable for WP user password has not been defined.`);
 
+        cy.wait(2000);
         cy.get(wpLoginSelectors.loginForm.emailInput).type(name, {
             log: false,
             delay: 50,
