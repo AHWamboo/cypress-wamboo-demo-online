@@ -3,43 +3,35 @@ on: workflow_dispatch
 jobs:
     install-and-run-tests:
         env:
-            WP_USER1: ${{ secrets.WP_USER1 }}
-            WP_USER1_PASSWORD: ${{ secrets.WP_USER1_PASSWORD }}
-            WP_ADMIN: ${{ secrets.WP_ADMIN }}
-            WP_ADMIN_PASSWORD: ${{ secrets.WP_ADMIN_PASSWORD }}
+            CYPRESS_WP_USER1: ${{ secrets.WP_USER1 }}
+            CYPRESS_WP_USER1_PASSWORD: ${{ secrets.WP_USER1_PASSWORD }}
+            CYPRESS_WP_ADMIN: ${{ secrets.WP_ADMIN }}
+            CYPRESS_WP_ADMIN_PASSWORD: ${{ secrets.WP_ADMIN_PASSWORD }}
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
               uses: actions/checkout@v4
-            - name: Install dependencies
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 20.8.1
-            - run: npm ci
-            - name: Upload artifacts
-              uses: actions/upload-artifact@v3
-              with:
-                name: package
-                path: package.json
-            - name: Get build aftifacts
-              uses: actions/download-artifact@v3
-              with:
-                name: package
+            - name: Create cypress.env.json file
+              run: |
+                echo '${{ secrets.CYPRESS_ENVS }}' > cypress.env.json
+            - name: see ENVS
+              run: env
             - name: Cypress run tests
               uses: cypress-io/github-action@v6
-              env: 
-                WP_USER1: ${{ secrets.WP_USER1 }}
-                WP_USER1_PASSWORD: ${{ secrets.WP_USER1_PASSWORD }}
-                WP_ADMIN: ${{ secrets.WP_ADMIN }}
-                WP_ADMIN_PASSWORD: ${{ secrets.WP_ADMIN_PASSWORD }}
+              # env: 
+              #   CYPRESS_WP_USER1: ${{ secrets.WP_USER1 }}
+              #   CYPRESS_WP_USER1_PASSWORD: ${{ secrets.WP_USER1_PASSWORD }}
+              #   CYPRESS_WP_ADMIN: ${{ secrets.WP_ADMIN }}
+              #   CYPRESS_WP_ADMIN_PASSWORD: ${{ secrets.WP_ADMIN_PASSWORD }}
               with:
-                start: npm run cypress:run:ci
-            - name: Upload artifacts
-              uses: actions/upload-artifact@v3
+                browser: chrome
+            - uses: actions/upload-artifact@v3
+              if: failure()
               with:
-                name: videos
+                name: cypress-screenshots
+                path: cypress/screenshots
+            - uses: actions/upload-artifact@v3
+              if: always()
+              with:
+                name: cypress-videos
                 path: cypress/videos
-            - name: Get build aftifacts
-              uses: actions/download-artifact@v3
-              with:
-                name: videos
