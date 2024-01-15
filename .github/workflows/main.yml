@@ -13,15 +13,6 @@ jobs:
               uses: actions/checkout@v4
             - name: see ENVS
               run: env
-            - name: Upload artifacts
-              uses: actions/upload-artifact@v3
-              with:
-                name: package
-                path: package.json
-            - name: Get build aftifacts
-              uses: actions/download-artifact@v3
-              with:
-                name: package
             - name: Cypress run tests
               uses: cypress-io/github-action@v6
               # env: 
@@ -41,7 +32,3 @@ jobs:
               with:
                 name: cypress-videos
                 path: cypress/videos
-            # - name: Get build aftifacts
-            #   uses: actions/download-artifact@v3
-            #   with:
-            #     name: videos
