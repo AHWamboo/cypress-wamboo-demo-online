@@ -2,11 +2,11 @@ name: e2e-tests
 on: workflow_dispatch
 jobs:
     install-and-run-tests:
-        env:
-            WP_USER1: ${{ secrets.WP_USER1 }}
-            WP_USER1_PASSWORD: ${{ secrets.WP_USER1_PASSWORD }}
-            WP_ADMIN: ${{ secrets.WP_ADMIN }}
-            WP_ADMIN_PASSWORD: ${{ secrets.WP_ADMIN_PASSWORD }}
+        # env:
+        #     WP_USER1: ${{ secrets.WP_USER1 }}
+        #     WP_USER1_PASSWORD: ${{ secrets.WP_USER1_PASSWORD }}
+        #     WP_ADMIN: ${{ secrets.WP_ADMIN }}
+        #     WP_ADMIN_PASSWORD: ${{ secrets.WP_ADMIN_PASSWORD }}
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -33,7 +33,7 @@ jobs:
                 CYPRESS_WP_ADMIN: ${{ secrets.WP_ADMIN }}
                 CYPRESS_WP_ADMIN_PASSWORD: ${{ secrets.WP_ADMIN_PASSWORD }}
               with:
-                start: npm run cypress:run:ci
+                browser: chrome
             - name: Upload artifacts
               uses: actions/upload-artifact@v3
               with:
