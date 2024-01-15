@@ -28,8 +28,8 @@ jobs:
             - name: Cypress run tests
               uses: cypress-io/github-action@v6
               env: 
-                CYPRESS_WP_USER1: aaaa
-                CYPRESS_WP_USER1_PASSWORD: bbbb
+                CYPRESS_WP_USER1: ${{ secrets.WP_USER1 }}
+                CYPRESS_WP_USER1_PASSWORD: ${{ secrets.WP_USER1_PASSWORD }}
                 CYPRESS_WP_ADMIN: ${{ secrets.WP_ADMIN }}
                 CYPRESS_WP_ADMIN_PASSWORD: ${{ secrets.WP_ADMIN_PASSWORD }}
               with:
