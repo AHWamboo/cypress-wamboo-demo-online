@@ -24,19 +24,24 @@ jobs:
                 name: package
             - name: Cypress run tests
               uses: cypress-io/github-action@v6
-              env: 
-                CYPRESS_WP_USER1: ${{ secrets.WP_USER1 }}
-                CYPRESS_WP_USER1_PASSWORD: ${{ secrets.WP_USER1_PASSWORD }}
-                CYPRESS_WP_ADMIN: ${{ secrets.WP_ADMIN }}
-                CYPRESS_WP_ADMIN_PASSWORD: ${{ secrets.WP_ADMIN_PASSWORD }}
+              # env: 
+              #   CYPRESS_WP_USER1: ${{ secrets.WP_USER1 }}
+              #   CYPRESS_WP_USER1_PASSWORD: ${{ secrets.WP_USER1_PASSWORD }}
+              #   CYPRESS_WP_ADMIN: ${{ secrets.WP_ADMIN }}
+              #   CYPRESS_WP_ADMIN_PASSWORD: ${{ secrets.WP_ADMIN_PASSWORD }}
               with:
                 browser: chrome
-            - name: Upload artifacts
-              uses: actions/upload-artifact@v3
+            - uses: actions/upload-artifact@v3
+              if: failure()
               with:
-                name: videos
+                name: cypress-screenshots
+                path: cypress/screenshots
+            - uses: actions/upload-artifact@v3
+              if: always()
+              with:
+                name: cypress-videos
                 path: cypress/videos
-            - name: Get build aftifacts
-              uses: actions/download-artifact@v3
-              with:
-                name: videos
+            # - name: Get build aftifacts
+            #   uses: actions/download-artifact@v3
+            #   with:
+            #     name: videos
