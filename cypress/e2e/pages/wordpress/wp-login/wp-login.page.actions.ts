@@ -12,9 +12,11 @@ export class WpLoginActions {
 
         cy.get(wpLoginSelectors.loginForm.emailInput).type(name, {
             log: false,
+            delay: 50,
         });
         cy.get(wpLoginSelectors.loginForm.passwordInput).type(pass, {
             log: false,
+            delay: 50,
         });
         cy.get(wpLoginSelectors.loginForm.submitButton).click();
     }
