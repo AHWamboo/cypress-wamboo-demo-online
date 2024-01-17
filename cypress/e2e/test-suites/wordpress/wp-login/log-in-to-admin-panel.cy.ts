@@ -12,6 +12,7 @@ describe('Wordpress log in website - user log in options', () => {
     });
 
     it('User can log in using the wordpress login form', () => {
+        cy.visit(WP_LOG_IN_PAGE_URL);
         wpLoginActions.logIn(WP_ADMIN, WP_ADMIN_PASSWORD);
         wpAdminBarAsserts.verifyAdminPanelHelpLinkExists();
     });

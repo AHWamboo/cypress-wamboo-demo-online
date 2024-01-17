@@ -4,5 +4,6 @@
 declare namespace Cypress {
     interface Chainable {
         getFixtureData(fixtureFilePath: string): Chainable<void>;
+        APILoginJWT(userName: string, userApiPassword: string): Chainable<void>;
     }
 }
