@@ -8,12 +8,5 @@ Cypress.Commands.add('APILoginJWT', (userName: string, userApiPassword: string) 
             username: userName,
             password: userApiPassword,
         },
-    })
-        .its('body')
-        .then((body) => {
-            // cy.log(body.token);
-            // cy.visit('https://wamboo-demo.online/wp-admin/edit.php', {
-            //     headers: { Authorization: `Bearer ${body.token}` },
-            // });
-        });
+    }).its('body');
 });
