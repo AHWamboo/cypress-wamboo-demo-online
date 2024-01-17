@@ -18,11 +18,6 @@ jobs:
               run: env
             - name: Cypress run tests
               uses: cypress-io/github-action@v6
-              # env: 
-              #   CYPRESS_WP_USER1: ${{ secrets.WP_USER1 }}
-              #   CYPRESS_WP_USER1_PASSWORD: ${{ secrets.WP_USER1_PASSWORD }}
-              #   CYPRESS_WP_ADMIN: ${{ secrets.WP_ADMIN }}
-              #   CYPRESS_WP_ADMIN_PASSWORD: ${{ secrets.WP_ADMIN_PASSWORD }}
               with:
                 browser: chrome
             - uses: actions/upload-artifact@v3
