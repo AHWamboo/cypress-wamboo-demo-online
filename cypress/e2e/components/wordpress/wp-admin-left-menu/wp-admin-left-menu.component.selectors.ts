@@ -1,8 +1,6 @@
 export const wpAdminLeftMenuSelectors = {
     menu: {
-        posts: {
-            link: 'a.menu-icon-post',
-            submenu: {},
-        },
+        mainLink: 'a.menu-icon-post',
+        submenuLink: 'li.menu-icon-post .wp-submenu li a',
     },
 };
