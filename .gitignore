@@ -142,3 +142,6 @@ cypress.env.json
 # project config
 .prettierrc.json
 todo.txt
+
+# db
+cypress/db/*
