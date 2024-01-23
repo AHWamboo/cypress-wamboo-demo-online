@@ -144,4 +144,4 @@ cypress.env.json
 todo.txt
 
 # db
-cypress/db/*
+cypress/assets/db-backup/*
