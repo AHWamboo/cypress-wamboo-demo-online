@@ -1,1 +1,9 @@
-
+name: testCMD
+on: workflow_dispatch
+jobs:
+    testCmd:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run CMD command
+              run: |
+                echo "Hello, world!"
