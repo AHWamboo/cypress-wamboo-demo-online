@@ -9,4 +9,8 @@ jobs:
               with:
                   repository: AHWamboo/cypress-wamboo-demo-online-sql-dump
                   # token: ${{ secrets.ACCESS_TOKEN }}
-                  ref: main # or specify the branch or tag you want to pull from
+                  ref: main
+
+            - name: List contents of the private repository
+              run: |
+                ls -la HWamboo/cypress-wamboo-demo-online-sql-dump
