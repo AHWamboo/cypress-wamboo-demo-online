@@ -8,7 +8,7 @@ jobs:
               uses: actions/checkout@v2
               with:
                   repository: AHWamboo/cypress-wamboo-demo-online-sql-dump
-                  # token: ${{ secrets.ACCESS_TOKEN }}
+                  token: ${{ secrets.ACCESS_TOKEN }}
                   ref: main
 
             - name: List contents of the private repository
