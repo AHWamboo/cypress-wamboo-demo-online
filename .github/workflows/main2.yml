@@ -13,4 +13,4 @@ jobs:
 
             - name: List contents of the private repository
               run: |
-                ls -la HWamboo/cypress-wamboo-demo-online-sql-dump
+                ls -la AHWamboo/cypress-wamboo-demo-online-sql-dump
