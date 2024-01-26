@@ -21,5 +21,9 @@ jobs:
                 --passphrase "${{ secrets.GPG_PASSPHRASE }}" \
                 --output db-backup.sql \
                 db-backup.sql.gpg
-        env:
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+              env:
+                GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
+            - name: List contents of the private repository
+              run: |
+                ls 
