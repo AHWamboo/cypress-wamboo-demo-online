@@ -17,7 +17,9 @@ jobs:
 
             - name: Decrypt File
               run: |
-                echo "{{ secrets.GPG_PASSPHRASE }}" | gpg --decrypt --cipher-algo AES256 --passphrase-fd 0 --output db-backup.sql db-backup.sql.gpg
+                export GPG_TTY=$(tty) \
+                gpg --decrypt --cipher-algo AES256 --passphrase "${{ secrets.GPG_PASSPHRASE }}" --output db-backup.sql db-backup.sql.gpg
+
               env:
                 GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
