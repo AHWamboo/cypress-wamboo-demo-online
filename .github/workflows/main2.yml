@@ -24,3 +24,12 @@ jobs:
             - name: List contents of the private repository
               run: |
                 ls 
+
+            - name: run database backup
+              run: |
+                mysql -h ${{ env.DB_HOSTNAME }} -u ${{ env.DB_USERNAME }} -p'${{ env.DB_PASSWORD }}' --max_allowed_packet=256M -D ${{ env.DB_NAME }} --force < db-backup.sql;
+              env:
+                DB_HOSTNAME: ${{ secrets.DB_HOSTNAME }}
+                DB_USERNAME: ${{ secrets.DB_USERNAME }}
+                DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+                DB_NAME: ${{ secrets.DB_NAME }}
