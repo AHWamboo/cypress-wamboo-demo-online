@@ -19,6 +19,14 @@ jobs:
               run: |
                 gpg --version
 
+            - name: Brew install gpg
+              run: |
+                brew install gnupg
+
+            - name: Check gpg version after update
+              run: |
+                gpg --version
+
             - name: Decrypt File
               run: |
                 gpg --quiet --decrypt --pinentry-mode loopback --passphrase "${{ secrets.GPG_PASSPHRASE }}" --output db-backup.sql db-backup.sql.gpg
