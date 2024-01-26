@@ -14,3 +14,12 @@ jobs:
             - name: List contents of the private repository
               run: |
                 ls 
+
+            - name: Decrypt File
+              run: |
+                gpg --quiet --decrypt --cipher-algo AES256 \
+                --passphrase "${{ secrets.GPG_PASSPHRASE }}" \
+                --output db-backup.sql \
+                db-backup.sql.gpg
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
