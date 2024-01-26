@@ -14,8 +14,28 @@ jobs:
             - name: Create cypress.env.json file
               run: |
                 echo '${{ secrets.CYPRESS_ENVS }}' > cypress.env.json
-            - name: see ENVS
-              run: env
+
+            - name: Checkout another private repository
+              uses: actions/checkout@v2
+              with:
+                  repository: AHWamboo/cypress-wamboo-demo-online-sql-dump
+                  token: ${{ secrets.ACCESS_TOKEN }}
+                  ref: main
+
+            - name: List contents of the private repository
+              run: |
+                ls 
+
+            - name: Decrypt File
+              run: |
+                gpg --batch --decrypt --cipher-algo AES256 --pinentry-mode loopback --passphrase "${{ secrets.GPG_PASSPHRASE }}" --output db-backup.sql db-backup.sql.gpg
+              env:
+                GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
+            - name: List contents of the private repository
+              run: |
+                ls 
+                
             - name: Cypress run tests
               uses: cypress-io/github-action@v6
               with:
