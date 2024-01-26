@@ -17,7 +17,7 @@ jobs:
 
             - name: Decrypt File
               run: |
-                gpg --quiet --decrypt --cipher-algo AES256 --pinentry-mode loopback --passphrase "${{ secrets.GPG_PASSPHRASE }}" --output db-backup.sql db-backup.sql.gpg
+                gpg --quiet --decrypt --pinentry-mode loopback --passphrase "${{ secrets.GPG_PASSPHRASE }}" --output db-backup.sql db-backup.sql.gpg
               env:
                 GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
