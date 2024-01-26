@@ -18,7 +18,7 @@ jobs:
             - name: Decrypt File
               run: |
                 gpg --quiet --decrypt --cipher-algo AES256 \
-                --passphrase "${{ secrets.GPG_PASSPHRASE }}" \
+                --passphrase ${{ secrets.GPG_PASSPHRASE }} \
                 --output db-backup.sql \
                 db-backup.sql.gpg
               env:
