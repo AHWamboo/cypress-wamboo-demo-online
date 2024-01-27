@@ -11,21 +11,13 @@ jobs:
                   token: ${{ secrets.ACCESS_TOKEN }}
                   ref: main
 
-            - name: List contents of the private repository
-              run: |
-                ls 
-
             - name: Decrypt File
               run: |
                 gpg --batch --decrypt --cipher-algo AES256 --pinentry-mode loopback --passphrase "${{ secrets.GPG_PASSPHRASE }}" --output db-backup.sql db-backup.sql.gpg
               env:
                 GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
-            - name: List contents of the private repository
-              run: |
-                ls 
-
-            - name: run database backup
+            - name: Run database backup
               run: |
                 mysql -h ${{ env.DB_HOSTNAME }} -u ${{ env.DB_USERNAME }} -p'${{ env.DB_PASSWORD }}' --max_allowed_packet=256M -D ${{ env.DB_NAME }} --force < db-backup.sql;
               env:
