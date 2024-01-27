@@ -13,4 +13,8 @@ export default defineConfig({
             });
         },
     },
+    retries: {
+        runMode: 3,
+        openMode: 0
+    }
 });
