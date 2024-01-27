@@ -6,5 +6,5 @@
         "strictNullChecks": true,
         "allowUnreachableCode": false
     },
-    "include": ["**/*.ts", "db/db-restore.js"]
+    "include": ["**/*.ts"]
 }
