@@ -1,7 +1,7 @@
-name: e2e-tests
+name: testCMD
 on: workflow_dispatch
 jobs:
-    download-database-decode-and-restore-db-backup:
+    testCmd:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout another private repository
@@ -33,33 +33,3 @@ jobs:
                 DB_USERNAME: ${{ secrets.DB_USERNAME }}
                 DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
                 DB_NAME: ${{ secrets.DB_NAME }}
-
-    install-and-run-tests:
-        needs: download-database-decode-and-restore-db-backup
-        env:
-            CYPRESS_WP_USER1: ${{ secrets.WP_USER1 }}
-            CYPRESS_WP_USER1_PASSWORD: ${{ secrets.WP_USER1_PASSWORD }}
-            CYPRESS_WP_ADMIN: ${{ secrets.WP_ADMIN }}
-            CYPRESS_WP_ADMIN_PASSWORD: ${{ secrets.WP_ADMIN_PASSWORD }}
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-            - name: Create cypress.env.json file
-              run: |
-                echo '${{ secrets.CYPRESS_ENVS }}' > cypress.env.json
-                
-            - name: Cypress run tests
-              uses: cypress-io/github-action@v6
-              with:
-                browser: chrome
-            - uses: actions/upload-artifact@v3
-              if: failure()
-              with:
-                name: cypress-screenshots
-                path: cypress/screenshots
-            - uses: actions/upload-artifact@v3
-              if: always()
-              with:
-                name: cypress-videos
-                path: cypress/videos
